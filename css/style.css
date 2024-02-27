@@ -9,13 +9,13 @@ body {
 /*navbar*/
 nav {
   display: flex;
-  background-color: coral;
+  background-color: rgb(245, 244, 244);
   justify-content: space-around;
   /* padding: 20px 0; atas bawah 20  kiri kanan 0 */
   /* atur padding dengan flex */
   height: 45px;
   align-items: center;
-  color: whitesmoke;
+  color: rgb(4, 4, 4);
 }
 nav ul {
   display: flex;
@@ -31,7 +31,7 @@ nav .logo {
 
 nav ul li a {
   text-decoration: none;
-  color: white;
+  color: rgb(8, 7, 7);
   font-size: 0.9rem;
 }
 
@@ -60,7 +60,7 @@ nav ul li a:hover {
      display: block;
      width: 21px;
      height: 2px;
-     background-color: whitesmoke;
+     background-color: rgb(10, 9, 9);
      border-radius: 3px;
      transition: all 0.7s;
  }
@@ -90,19 +90,19 @@ nav ul li a:hover {
 
   .image {
    
-    width: 100%;
-    height: auto;  
+    width: max-content;
+    height: max-content;  
     max-width: 140px;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-.container {
+.container-main {
     display: flex;
     flex-direction: column;
 
-    border: 2px solid blue;
+    border: 2px solid rgb(0, 0, 0);
     padding: 8px;
     border-radius: 5px;
     margin: 0 auto;
@@ -130,8 +130,8 @@ footer {
 }
 h2 {
   
-    text-align: center;
-    color: brown;
+    text-align: left;
+    color: rgb(12, 10, 10);
     text-justify: inter-word;
     word-wrap: break-word;
 
@@ -178,5 +178,40 @@ p {
         opacity: 0.5;
         /* transform: translateX(0); */
     }
+  }
+
+  .gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 960px;
+  }
+  
+  .gallery-item {
+    margin: 10px;
+    position: relative;
+    width: calc(33.333% - 20px);
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .gallery-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .gallery-item:hover .gallery-title {
+    opacity: 1;
   }
 

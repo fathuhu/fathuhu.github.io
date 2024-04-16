@@ -1,37 +1,59 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Membaca File json</title>
-        <!-- Import library Jquery -->
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script type="text/javascript">
-            $(function(){
-                //mengambil data dari file headline.json dengan fungsi $.get() dari jquery
-                $.get('headline.json', function(obj){
-                    var str = '<table border="1">';
-                    //judul tabel
-                    str += '<tr><td>No</td><td>Judul Headline</td><td>Kategori</td><td>Waktu publish</td><td>Waktu scrapping</td></tr>';
-                    //looping data headline
-                    $.each(obj, function(n, data){
-                        var judul = data.judul;
-                        var kd = data.kd;
-                        //isi tabel
-                        str += '<>';
-                        str += '<td>' + (n+1) + '</td>';
-                        str += '<td>' + data.judul + '</td>';
-                        str += '<td>' + data.kategori + '</td>';
-                        str += '<td>' + data.tanggal + '</td>';
-                        str += '<td>' + data.waktuScrape + '</td>';
-                        str += '</tr>';  
-                    });
-                    //tag tabel penutup
-                    str += '</table>';
-                    //Display semua headline ke html dengan id=headline_json    
-                    $('#headline_json').html(str);
+<head>
+    <title>Membaca File JSON</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // Mengambil data dari file headline.json dengan fungsi $.get() dari jQuery
+            $.get('headline.json', function(obj){
+                var str = '<table id="headline_table">';
+                // Judul tabel
+                str += '<tr><th>No</th><th>Judul Headline</th><th>Kategori</th><th>Waktu Publish</th><th>Waktu Scraping</th></tr>';
+                // Looping data headline
+                $.each(obj, function(n, data){
+                    var judul = data.judul;
+                    var kd = data.kd;
+                    // Isi tabel
+                    str += '<tr>';
+                    str += '<td>' + (n+1) + '</td>';
+                    str += '<td>' + data.judul + '</td>';
+                    str += '<td>' + data.kategori + '</td>';
+                    str += '<td>' + data.tanggal + '</td>';
+                    str += '<td>' + data.waktuScrape + '</td>';
+                    str += '</tr>';  
                 });
+                // Tag tabel penutup
+                str += '</table>';
+                // Menampilkan semua headline ke dalam elemen dengan id=headline_json    
+                $('#headline_json').html(str);
             });
-        </script>
-    </head>
-    <body>
-        <h1>Headline Republika Online</h1>
-        <div id="headline_json"></div>
+        });
+    </script>
+    <style>
+        /* CSS untuk membuat tampilan tabel lebih menarik */
+        #headline_table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        #headline_table th, #headline_table td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+        #headline_table th {
+            background-color: #f2f2f2;
+        }
+        #headline_table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        #headline_table tr:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Headline Republika Online</h1>
+    <div id="headline_json"></div>
+</body>
 </html>
